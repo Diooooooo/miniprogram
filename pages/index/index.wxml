@@ -1,0 +1,24 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="userinfo">
+    <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
+    <block wx:else>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" mode="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+    </block>
+  </view>
+  <view class="usermotto">
+    <text class="user-motto">{{motto}}</text>
+  </view>
+  <view>
+    <block wx:for="{{dio}}" wx:key="{{item}}">
+      <view class='line'>
+        <view class='left'>
+        <image src='../../images/cloudy.png' style='width:48rpx;height:48rpx;'></image>
+        {{index}}
+        </view>
+        <view class='right'>{{item.season_fid}}</view>
+      </view>
+    </block>
+  </view>
+</view>
